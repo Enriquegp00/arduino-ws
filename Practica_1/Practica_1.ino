@@ -17,6 +17,12 @@ void loop()
   /* Welcome message! Useful as a control point */
   Serial.printf("Ahoy! ESP8266 here!\n---\n");
 
+   /* Tell the BME280 where we want to read */
+  Wire.beginTransmission(0x76);
+  Wire.write(0xD0);
+  Wire.endTransmission();
+
+
   /* Request data from slave with address 0x76 */
   Wire.requestFrom(0x76, 1);
 
